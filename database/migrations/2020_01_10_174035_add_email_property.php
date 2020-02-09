@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateArticlesTable extends Migration
+class AddEmailProperty extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateArticlesTable extends Migration
      */
     public function up()
     {
-        Schema::create('articles', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('title');
-            $table->string('summary');
-            $table->text('article');
-            $table->timestamps();
+        //
+        Schema::table('application_properties', function(Blueprint $table){
+            $table->string('email')->after('about_us');
         });
     }
 
@@ -29,6 +26,6 @@ class CreateArticlesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('articles');
+        //
     }
 }

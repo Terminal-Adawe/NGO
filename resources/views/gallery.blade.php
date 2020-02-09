@@ -8,51 +8,49 @@
     <link href="https://fonts.googleapis.com/css?family=Dosis:200,300,400,500,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Overpass:300,400,400i,600,700" rel="stylesheet">
 
-    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="{{ URL::asset('css/open-iconic-bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('css/animate.css') }}">
     
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="{{ URL::asset('css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('css/owl.theme.default.min.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('css/magnific-popup.css') }}">
 
-    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="{{ URL::asset('css/aos.css') }}">
 
-    <link rel="stylesheet" href="css/ionicons.min.css">
+    <link rel="stylesheet" href="{{ URL::asset('css/ionicons.min.css') }}">
 
-    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="css/jquery.timepicker.css">
+    <link rel="stylesheet" href="{{ URL::asset('css/bootstrap-datepicker.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('css/jquery.timepicker.css') }}">
 
     
-    <link rel="stylesheet" href="css/flaticon.css">
-    <link rel="stylesheet" href="css/icomoon.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{{ URL::asset('css/flaticon.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('css/icomoon.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}">
   </head>
   <body>
     
   <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-      <a class="navbar-brand" href="index.html">Welfare</a>
+      <a class="navbar-brand" href="index.html">Youth Alive</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="oi oi-menu"></span> Menu
       </button>
 
       <div class="collapse navbar-collapse" id="ftco-nav">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-          <li class="nav-item"><a href="causes.html" class="nav-link">Causes</a></li>
+          <li class="nav-item"><a href="{{ url('/') }}" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="{{ url('/about') }}" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">Causes</a></li>
           <li class="nav-item"><a href="donate.html" class="nav-link">Donate</a></li>
-          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-          <li class="nav-item active"><a href="gallery.html" class="nav-link">Gallery</a></li>
-          <li class="nav-item"><a href="event.html" class="nav-link">Events</a></li>
-          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+          <li class="nav-item"><a href="{{ url('/articles') }}" class="nav-link">Articles</a></li>
+          <li class="nav-item active"><a href="{{ url('/gallery') }}" class="nav-link">Gallery</a></li>
         </ul>
       </div>
     </div>
   </nav>
     <!-- END nav -->
     
-    <div class="hero-wrap" style="background-image: url('images/bg_2.jpg');" data-stellar-background-ratio="0.5">
+    <div class="hero-wrap" style="background-image: url('{{ Storage::url('images/bg_2.jpg') }}');" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
@@ -67,100 +65,15 @@
     <section class="ftco-section ftco-gallery">
     	<div class="container">
 	    	<div class="d-md-flex">
-		    	<a href="images/cause-2.jpg" class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate" style="background-image: url(images/cause-2.jpg);">
+          @foreach($data['images'] as $image)
+		    	<a href="{{ Voyager::image($image->image) }}" class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate" style="background-image: url('{{ Voyager::image($image->image) }}');">
 		    		<div class="icon d-flex justify-content-center align-items-center">
 		    			<span class="icon-search"></span>
 		    		</div>
 		    	</a>
-		    	<a href="images/cause-3.jpg" class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate" style="background-image: url(images/cause-3.jpg);">
-		    		<div class="icon d-flex justify-content-center align-items-center">
-		    			<span class="icon-search"></span>
-		    		</div>
-		    	</a>
-		    	<a href="images/cause-4.jpg" class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate" style="background-image: url(images/cause-4.jpg);">
-		    		<div class="icon d-flex justify-content-center align-items-center">
-		    			<span class="icon-search"></span>
-		    		</div>
-		    	</a>
-		    	<a href="images/cause-5.jpg" class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate" style="background-image: url(images/cause-5.jpg);">
-		    		<div class="icon d-flex justify-content-center align-items-center">
-		    			<span class="icon-search"></span>
-		    		</div>
-		    	</a>
-	    	</div>
-	    	<div class="d-md-flex">
-		    	<a href="images/cause-6.jpg" class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate" style="background-image: url(images/cause-6.jpg);">
-		    		<div class="icon d-flex justify-content-center align-items-center">
-		    			<span class="icon-search"></span>
-		    		</div>
-		    	</a>
-		    	<a href="images/image_3.jpg" class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate" style="background-image: url(images/image_3.jpg);">
-		    		<div class="icon d-flex justify-content-center align-items-center">
-		    			<span class="icon-search"></span>
-		    		</div>
-		    	</a>
-		    	<a href="images/image_1.jpg" class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate" style="background-image: url(images/image_1.jpg);">
-		    		<div class="icon d-flex justify-content-center align-items-center">
-		    			<span class="icon-search"></span>
-		    		</div>
-		    	</a>
-		    	<a href="images/image_2.jpg" class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate" style="background-image: url(images/image_2.jpg);">
-		    		<div class="icon d-flex justify-content-center align-items-center">
-		    			<span class="icon-search"></span>
-		    		</div>
-		    	</a>
-		    </div>
-		    <div class="d-md-flex">
-		    	<a href="images/event-1.jpg" class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate" style="background-image: url(images/event-1.jpg);">
-		    		<div class="icon d-flex justify-content-center align-items-center">
-		    			<span class="icon-search"></span>
-		    		</div>
-		    	</a>
-		    	<a href="images/event-2.jpg" class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate" style="background-image: url(images/event-2.jpg);">
-		    		<div class="icon d-flex justify-content-center align-items-center">
-		    			<span class="icon-search"></span>
-		    		</div>
-		    	</a>
-		    	<a href="images/image_1.jpg" class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate" style="background-image: url(images/image_4.jpg);">
-		    		<div class="icon d-flex justify-content-center align-items-center">
-		    			<span class="icon-search"></span>
-		    		</div>
-		    	</a>
-		    	<a href="images/image_2.jpg" class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate" style="background-image: url(images/event-4.jpg);">
-		    		<div class="icon d-flex justify-content-center align-items-center">
-		    			<span class="icon-search"></span>
-		    		</div>
-		    	</a>
+          @endforeach
 		    </div>
 	    </div>
-    </section>
-
-    <section class="ftco-section-3 img" style="background-image: url(images/bg_3.jpg);">
-    	<div class="overlay"></div>
-    	<div class="container">
-    		<div class="row d-md-flex">
-    		<div class="col-md-6 d-flex ftco-animate">
-    			<div class="img img-2 align-self-stretch" style="background-image: url(images/bg_4.jpg);"></div>
-    		</div>
-    		<div class="col-md-6 volunteer pl-md-5 ftco-animate">
-    			<h3 class="mb-3">Be a volunteer</h3>
-    			<form action="#" class="volunter-form">
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Your Name">
-            </div>
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Your Email">
-            </div>
-            <div class="form-group">
-              <textarea name="" id="" cols="30" rows="3" class="form-control" placeholder="Message"></textarea>
-            </div>
-            <div class="form-group">
-              <input type="submit" value="Send Message" class="btn btn-white py-3 px-5">
-            </div>
-          </form>
-    		</div>    			
-    		</div>
-    	</div>
     </section>
 
     <footer class="ftco-footer ftco-section img">
@@ -223,9 +136,9 @@
             	<h2 class="ftco-heading-2">Have a Questions?</h2>
             	<div class="block-23 mb-3">
 	              <ul>
-	                <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
+	                <li><span class="icon icon-map-marker"></span><span class="text">{{ $data['properties']->address }}, {{ $data['properties']->city }}</span></li>
+	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">{{ $data['properties']->telephone }}</span></a></li>
+	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">{{ $data['properties']->email }}</span></a></li>
 	              </ul>
 	            </div>
             </div>

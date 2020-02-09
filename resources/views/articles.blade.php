@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="en">
   <head>
     <title>Welfare - Free Bootstrap 4 Template by Colorlib</title>
     <meta charset="utf-8">
@@ -42,113 +42,53 @@
           <li class="nav-item"><a href="{{ url('/about') }}" class="nav-link">About</a></li>
           <li class="nav-item"><a href="#" class="nav-link">Causes</a></li>
           <li class="nav-item"><a href="donate.html" class="nav-link">Donate</a></li>
-          <li class="nav-item active"><a href="{{ url('/articles') }}" class="nav-link">Articles</a></li>
-          <li class="nav-item"><a href="{{ url('/gallery') }}" class="nav-link">Gallery</a></li>
+          <li class="nav-item"><a href="{{ url('/articles') }}" class="nav-link">Articles</a></li>
+          <li class="nav-item active"><a href="{{ url('/gallery') }}" class="nav-link">Gallery</a></li>
         </ul>
       </div>
     </div>
   </nav>
     <!-- END nav -->
     
-    <div class="hero-wrap" style="background-image: url('{{ Storage::url($data['article']->image) }}')" data-stellar-background-ratio="0.5">
+    <div class="hero-wrap" style="background-image: url('{{ Storage::url('images/bg_2.jpg') }}');" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
           <div class="col-md-7 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
-             <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="index.html">Home</a></span> <span class="mr-2"><a href="blog.html">Articles</a></span> <span>{{ $data['article']->title }}</span></p>
-            <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">{{ $data['article']->title }}</h1>
+             <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="index.html">Home</a></span> <span>Gallery</span></p>
+            <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Articles</h1>
           </div>
         </div>
       </div>
     </div>
 
-    <section class="ftco-section ftco-degree-bg">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8 ftco-animate">
-            <h2 class="mb-3">{{ $data['article']->title }}</h2>
-            {{ $data['article']->article }}
-            <div class="tag-widget post-tag-container mb-5 mt-5">
-              <div class="tagcloud">
-                <a href="#" class="tag-cloud-link">Life</a>
-                <a href="#" class="tag-cloud-link">Sport</a>
-                <a href="#" class="tag-cloud-link">Tech</a>
-                <a href="#" class="tag-cloud-link">Travel</a>
-              </div>
-            </div>
-            
-           <!--  <div class="about-author d-flex p-5 bg-light">
-              <div class="bio align-self-md-center mr-5">
-                <img src="images/person_1.jpg" alt="Image placeholder" class="img-fluid mb-4">
-              </div>
-              <div class="desc align-self-md-center">
-                <h3>Lance Smith</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p>
-              </div>
-            </div> -->
-          </div> <!-- .col-md-8 -->
+    <section class="ftco-section">
+    	<div class="container">
+        <div class="row d-flex">
 
-          <div class="col-md-4 sidebar ftco-animate">
-            <div class="sidebar-box">
-              <form action="#" class="search-form">
-                <div class="form-group">
-                  <span class="icon fa fa-search"></span>
-                  <input type="text" class="form-control" placeholder="Type a keyword and hit enter">
+          @foreach($data['articles'] as $article)
+        <form method="get" class="col-md-4 d-flex ftco-animate" action="{{ url('/read') }}">
+          {{ csrf_field() }}
+          <input type='hidden' value="{{ $article->id }}" name='id'>
+            <div class="blog-entry align-self-stretch">
+              <button type='submit' href="blog-single.html" class="block-20" style="background-image: url('{{ Storage::url($article->image) }}');">
+              </button>
+              <div class="text p-4 d-block">
+                <div class="meta mb-3">
+                  <div><a href="#">{{ $article->created_at }}</a></div>
+                  <div><a href="#">{{ $article->arthur }}</a></div>
+                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
                 </div>
-              </form>
-            </div>
-<!--             <div class="sidebar-box ftco-animate">
-              <div class="categories">
-                <h3>Categories</h3>
-                <li><a href="#">Tour <span>(12)</span></a></li>
-                <li><a href="#">Hotel <span>(22)</span></a></li>
-                <li><a href="#">Coffee <span>(37)</span></a></li>
-                <li><a href="#">Drinks <span>(42)</span></a></li>
-                <li><a href="#">Foods <span>(14)</span></a></li>
-                <li><a href="#">Travel <span>(140)</span></a></li>
+                <h3 class="heading mt-3"><button type='submit' class="btn-link" style="background-color: none; border: none;" href="#">{{ $article->title }}</button></h3>
+                <p>{{ $article->summary }}</p>
               </div>
-            </div> -->
-
-            <div class="sidebar-box ftco-animate">
-              <h3>Recent Articles</h3>
-              @foreach($data['articles'] as $rArticles)
-              <div class="block-21 mb-4 d-flex">
-                <a class="blog-img mr-4" style="background-image: url('{{ Storage::url($rArticles->image) }}');"></a>
-                <div class="text">
-                  <h3 class="heading"><a href="#">{{ $rArticles->title }}</a></h3>
-                  <div class="meta">
-                    <div><a href="#"><span class="icon-calendar"></span> {{ $rArticles->created_at }}</a></div>
-                    <div><a href="#"><span class="icon-person"></span> {{ $rArticles->arthur }}</a></div>
-                    <!-- <div><a href="#"><span class="icon-chat"></span> 19</a></div> -->
-                  </div>
-                </div>
-              </div>
-              @endforeach
             </div>
-
-      <!--       <div class="sidebar-box ftco-animate">
-              <h3>Tag Cloud</h3>
-              <div class="tagcloud">
-                <a href="#" class="tag-cloud-link">dish</a>
-                <a href="#" class="tag-cloud-link">menu</a>
-                <a href="#" class="tag-cloud-link">food</a>
-                <a href="#" class="tag-cloud-link">sweet</a>
-                <a href="#" class="tag-cloud-link">tasty</a>
-                <a href="#" class="tag-cloud-link">delicious</a>
-                <a href="#" class="tag-cloud-link">desserts</a>
-                <a href="#" class="tag-cloud-link">drinks</a>
-              </div>
-            </div> -->
-
-            <div class="sidebar-box ftco-animate">
-              <h3>Paragraph</h3>
-              <p>{{ $data['article']->summary }}</p>
-            </div>
-          </div>
+          </form>
+            @endforeach
 
         </div>
-      </div>
-    </section> <!-- .section -->
+	    </div>
+    </section>
 
     <footer class="ftco-footer ftco-section img">
     	<div class="overlay"></div>
@@ -157,7 +97,7 @@
           <div class="col-md-3">
             <div class="ftco-footer-widget mb-4">
               <h2 class="ftco-heading-2">About Us</h2>
-              <p>{{ $data['properties']->about_us }}</p>
+              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
               <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
                 <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
                 <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
@@ -169,7 +109,7 @@
             <div class="ftco-footer-widget mb-4">
               <h2 class="ftco-heading-2">Recent Blog</h2>
               <div class="block-21 mb-4 d-flex">
-                <a class="blog-img mr-4" style="background-image: url('{{ URL::asset('images/image_1.jpg') }}');"></a>
+                <a class="blog-img mr-4" style="background-image: url(images/image_1.jpg);"></a>
                 <div class="text">
                   <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
                   <div class="meta">
@@ -180,7 +120,7 @@
                 </div>
               </div>
               <div class="block-21 mb-4 d-flex">
-                <a class="blog-img mr-4" style="background-image: url('{{ URL::asset('images/image_2.jpg') }}');"></a>
+                <a class="blog-img mr-4" style="background-image: url(images/image_2.jpg);"></a>
                 <div class="text">
                   <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
                   <div class="meta">
@@ -235,23 +175,23 @@
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
 
-  <script src="{{ URL::asset('js/jquery.min.js') }}"></script>
-  <script src="{{ URL::asset('js/jquery-migrate-3.0.1.min.js') }}"></script>
-  <script src="{{ URL::asset('js/popper.min.js') }}"></script>
-  <script src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
-  <script src="{{ URL::asset('js/jquery.easing.1.3.js') }}"></script>
-  <script src="{{ URL::asset('js/jquery.waypoints.min.js') }}"></script>
-  <script src="{{ URL::asset('js/jquery.stellar.min.js') }}"></script>
-  <script src="{{ URL::asset('js/owl.carousel.min.js') }}"></script>
-  <script src="{{ URL::asset('js/jquery.magnific-popup.min.js') }}"></script>
-  <script src="{{ URL::asset('js/aos.js') }}"></script>
-  <script src="{{ URL::asset('js/jquery.animateNumber.min.js') }}"></script>
-  <script src="{{ URL::asset('js/bootstrap-datepicker.js') }}"></script>
-  <script src="{{ URL::asset('js/jquery.timepicker.min.js') }}"></script>
-  <script src="{{ URL::asset('js/scrollax.min.js') }}"></script>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/jquery.animateNumber.min.js"></script>
+  <script src="js/bootstrap-datepicker.js"></script>
+  <script src="js/jquery.timepicker.min.js"></script>
+  <script src="js/scrollax.min.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-  <script src="{{ URL::asset('js/google-map.js') }}"></script>
-  <script src="{{ URL::asset('js/main.js') }}"></script>
+  <script src="js/google-map.js"></script>
+  <script src="js/main.js"></script>
     
   </body>
 </html>
