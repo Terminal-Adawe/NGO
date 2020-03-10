@@ -151,11 +151,11 @@
 		    					<div class="text p-3 p-md-4">
 		    						<h3><a href="#">{{ $cause->title }}</a></h3>
 		    						<p>{{ $cause->summary }}</p>
-		    						<span class="donation-time mb-3 d-block">Last donation 1w ago</span>
+		    						<!-- <span class="donation-time mb-3 d-block">Last donation 1w ago</span> -->
 		                <div class="progress custom-progress-success">
 		                  <div class="progress-bar bg-primary" role="progressbar" style="width: 28%" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100"></div>
 		                </div>
-		                <span class="fund-raised d-block">$12,000 raised of $30,000</span>
+		                <!-- <span class="fund-raised d-block">$12,000 raised of $30,000</span> -->
 		    					</div>
 		    				</div>
 	    				</div>
@@ -330,7 +330,7 @@
           <div class="col-md-3">
             <div class="ftco-footer-widget mb-4">
               <h2 class="ftco-heading-2">About Us</h2>
-              <p>{{ $data['properties']->about_us }}</p>
+              <p>{{ $data['aboutus']->about_us }}</p>
               <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
                 <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
                 <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>

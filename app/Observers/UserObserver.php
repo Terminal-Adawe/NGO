@@ -25,7 +25,7 @@ class UserObserver
      */
     public function creating(User $user)
     {
-        $articles->auther = auth()->users() ? auth()->users()->id : null;
+        // $articles->auther = auth()->users() ? auth()->users()->id : null;
     }
 
     /**

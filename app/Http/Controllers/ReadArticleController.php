@@ -13,6 +13,7 @@ class ReadArticleController extends Controller
     	$data['article'] = DB::table('articles')->find($request->id);
     	$data['articles'] = Article::orderBy('created_at','desc')->take(3)->get();
     	$data['properties'] = DB::table('application_properties')->first();
+    	$data['aboutus'] = DB::table('about_us')->first();
     	return view('blog-single')->with('data',$data);
     }
 }

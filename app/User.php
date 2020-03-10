@@ -10,6 +10,8 @@ class User extends \TCG\Voyager\Models\User
 {
     use Notifiable;
 
+    protected $table = "users";
+
     /**
      * The attributes that are mass assignable.
      *
