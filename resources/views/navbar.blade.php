@@ -10,7 +10,7 @@
           <li class="nav-item active"><a href="{{ url('/') }}" class="nav-link">Home</a></li>
           <li class="nav-item"><a href="{{ url('/about') }}" class="nav-link">About</a></li>
           <li class="nav-item"><a href="#" class="nav-link">Causes</a></li>
-          <li class="nav-item"><a href="donate.html" class="nav-link">Donate</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">Donate</a></li>
           <li class="nav-item"><a href="{{ url('/articles') }}" class="nav-link">Articles</a></li>
           <li class="nav-item"><a href="{{ url('/gallery') }}" class="nav-link">Gallery</a></li>
         </ul>

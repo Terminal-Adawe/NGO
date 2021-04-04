@@ -52,8 +52,8 @@
             <div class="block-18 color-1 align-items-stretch">
               <div class="text">
               	<span>Served Over</span>
-                <strong class="number" data-number="1432805">0</strong>
-                <span>Children in 190 countries in the world</span>
+                <strong class="number" data-number="{{ $data['properties']->number_of_children_served }}">0</strong>
+                <span>Children</span>
               </div>
             </div>
           </div>
@@ -119,7 +119,7 @@
     		<div class="row justify-content-center mb-5 pb-3">
           <div class="col-md-5 heading-section ftco-animate text-center">
             <h2 class="mb-4">Our Causes</h2>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+            <p>We want to help people.</p>
           </div>
         </div>
     		<div class="row">
